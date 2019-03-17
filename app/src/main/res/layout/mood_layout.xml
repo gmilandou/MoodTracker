@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ccc"
+    android:orientation="horizontal"
+    tools:ignore="Overdraw">
+
+    <TextView
+        android:id="@+id/moodtime"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:text="@string/days_ago_today"
+        android:textColor="#000"
+        android:textStyle="bold"/>
+
+    <ImageView
+        android:id="@+id/moodcomment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/TODO"
+        android:padding="10dp"
+        android:src="@mipmap/ic_comment_black_48px"
+        tools:ignore="ContentDescription"/>
+</LinearLayout>
