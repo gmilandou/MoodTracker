@@ -1,7 +1,5 @@
 package lab.openclassrooms.com.moodtracker.init;
 
-//import android.content.Context;
-//import android.util.DisplayMetrics;
 
 import lab.openclassrooms.com.moodtracker.R;
 
@@ -49,10 +47,4 @@ public class Constants {
             R.color.light_sage,
             R.color.banana_yellow,
     };
-
-    //Pixel converter
-  /*  public static float convertPixelsToDp(float px, Context context) {
-        return px / ((float) context.getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-    }*/
-
 }

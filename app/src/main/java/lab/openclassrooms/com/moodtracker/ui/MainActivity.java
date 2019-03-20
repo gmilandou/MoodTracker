@@ -31,11 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewPager viewPager;
     private EditText input;
-    //private ListView listView;
-   // private Constants constants;
-
-   // private List<Mood> MoodItem;
-    //private ShareActionProvider mShareActionProvider;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
         MoodPagerAdapter sliderAdapter = new MoodPagerAdapter(this);
         viewPager.setAdapter(sliderAdapter);
-        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(3);
 
         initMoodHistory();
     }
-
 
 
     public void history(final View view) {
@@ -110,13 +104,9 @@ public class MainActivity extends AppCompatActivity {
         PendingIntent alarmPendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
 
         Calendar calendar = Calendar.getInstance();
-        //calendar.set(Calendar.HOUR_OF_DAY,21);
-        //calendar.set(Calendar.MINUTE, 35);
-        //calendar.set(Calendar.SECOND, 35);
+        calendar.set(Calendar.HOUR_OF_DAY, 0);
+        calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MINUTE, 38);
-        calendar.set(Calendar.HOUR, 9);
-       // calendar.set(Calendar.AM_PM, Calendar.AM);
 
         if (alarmManager != null) {
             alarmManager.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, alarmPendingIntent);
@@ -139,24 +129,24 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("prefs", Context.MODE_PRIVATE);
         String dayOneMood = preferences.getString("mMood1", null);
 
-        if (dayOneMood == null){
+        if (dayOneMood == null) {
             Toast.makeText(this, "You do not have a mood for today!", Toast.LENGTH_SHORT).show();
 
             return true;
         }
 
-            switch (item.getItemId()) {
-                case R.id.share_button:
-                    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-                    sharingIntent.setType("text/plain");
-                    String shareBodyText = "Hy buddy this is my mood: " + dayOneMood;
-                    sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Today's Mood");
-                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
-                    startActivity(Intent.createChooser(sharingIntent, "Share via "));
-                    return true;
-                default:
-                    return super.onOptionsItemSelected(item);
-            }
-
+        switch (item.getItemId()) {
+            case R.id.share_button:
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBodyText = "Hy buddy this is my mood: " + dayOneMood;
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Today's Mood");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText);
+                startActivity(Intent.createChooser(sharingIntent, "Share via "));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
+
+    }
 }

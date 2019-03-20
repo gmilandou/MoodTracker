@@ -16,17 +16,8 @@ public class Mood {
         return moodId;
     }
 
-   /* public void setMoodId(int moodId) {
-        this.moodId = moodId;
-    }*/
-
     public String getMoodMessage() {
 
         return moodMessage;
     }
-
-    /*public void setMoodMessage(String moodMessage) {
-
-        this.moodMessage = moodMessage;
-    }*/
 }

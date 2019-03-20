@@ -2,6 +2,8 @@ package lab.openclassrooms.com.moodtracker;
 
 import org.junit.Test;
 
+import lab.openclassrooms.com.moodtracker.init.Constants;
+
 import static org.junit.Assert.*;
 
 /**
@@ -14,4 +16,18 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void compareSizeMultiplierColor() throws Exception {
+        assertEquals(Constants.widthMultiplier.length, Constants.slideColors.length);
+    }
+
+    @Test
+    public void compareSizeMultiplierImage() throws Exception {
+        assertEquals(Constants.widthMultiplier.length, Constants.slideImages.length);
+    }
+
+
 }
+
+
